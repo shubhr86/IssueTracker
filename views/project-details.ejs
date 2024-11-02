@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= project.name %> - Details</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <%- include('navbar') %> <!-- Include the navbar -->
+
+    <div class="container">
+        <h1><%= project.name %></h1>
+        <p><%= project.description %></p>
+        <p><strong>Author:</strong> <%= project.author %></p>
+
+     
+       <!-- Issue Filters and Search -->
+<form method="GET" action="/issues/<%= project._id %>/issues" class="mb-4">
+    <div class="form-row align-items-center">
+        <div class="col-auto">
+            <input type="text" id="labels" name="labels" class="form-control mb-2" placeholder="Filter by Labels">
+        </div>
+        <div class="col-auto">
+            <input type="text" id="author" name="author" class="form-control mb-2" placeholder="Filter by Author">
+        </div>
+        <div class="col-auto">
+            <input type="text" id="search" name="search" class="form-control mb-2" placeholder="Search by Title or Description">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-2">Apply Filters</button>
+        </div>
+    </div>
+</form>
+
+
+        <h2>Issues</h2>
+<a href="/issues/create/<%= project._id %>" class="btn btn-success">Create Issue</a>
+<ul>
+    <% if (issues.length > 0) { %>
+        <% issues.forEach(issue => { %>
+            <li>
+                <strong>Title:</strong> <%= issue.title %><br>
+                <strong>Description:</strong> <%= issue.description %><br>
+                <strong>Author:</strong> <%= issue.author %><br>
+                <strong>Labels:</strong> <%= issue.labels.join(', ') %>
+            </li>
+            <hr>
+        <% }) %>
+    <% } else { %>
+        <p>No issues found for this project.</p>
+    <% } %>
+</ul>
+
+    </div>
+    <%- include('footer') %> <!-- Include the footer -->
+
+</body>
+<!-- Include jQuery first, then Popper.js, and then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</html>

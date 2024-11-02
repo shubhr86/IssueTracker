@@ -1,0 +1,98 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; /* Remove default margin */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Arrange children vertically */
+    min-height: 100vh; /* Minimum height for full viewport */
+}
+
+h1 {
+    font-size: 24px;
+    margin: 20px; /* Margin for spacing */
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, textarea, button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #b40a70 !important; /* Set navbar background color */
+}
+
+.nav-link {
+    color: white !important; /* Change link color for better contrast */
+}
+
+.navbar-toggler {
+    border-color: white; /* Optional: Change the toggler button color */
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    padding: 20px 0; /* Padding for spacing */
+    text-align: center; /* Center text */
+    width: 100%; /* Full width */
+    margin-top: auto; /* Push footer to the bottom of the page */
+}
+
+.footer a {
+    color: #b40a70; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Underline on hover for links */
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px; /* Max width of container */
+    margin: 0 auto; /* Center container */
+    padding: 0 15px; /* Padding for small devices */
+    flex: 1; /* Allow the container to grow and fill the space */
+}
+
+/* Card and Grid Styles */
+.row {
+    display: flex; /* Use flexbox for rows */
+    flex-wrap: wrap; /* Allow wrapping of cards */
+}
+
+.col-md-3 {
+    flex: 0 0 25%; /* Set width to 25% for four columns */
+    max-width: 25%; /* Set max-width for four columns */
+    padding: 15px; /* Space around cards */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .col-md-3 {
+        flex: 0 0 50%; /* Two columns on smaller screens */
+        max-width: 50%; /* Two columns on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-3 {
+        flex: 0 0 100%; /* Single column on extra small screens */
+        max-width: 100%; /* Single column on extra small screens */
+    }
+}

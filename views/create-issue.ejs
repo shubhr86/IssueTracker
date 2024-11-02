@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Issue</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <%- include('navbar') %> <!-- Include the navbar -->
+    <div class="container">
+        <h1>Create Issue for <%= project.name %></h1>
+        <form method="POST" action="/issues/create/<%= project._id %>">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="labels">Labels</label>
+                <input type="text" id="labels" name="labels" class="form-control" placeholder="Comma-separated labels" required>
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">Create Issue</button>
+        </form>
+    </div>
+    <%- include('footer') %> <!-- Include the footer -->
+
+</body>
+<!-- Include jQuery first, then Popper.js, and then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</html>
